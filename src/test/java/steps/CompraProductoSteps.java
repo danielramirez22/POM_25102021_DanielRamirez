@@ -1,9 +1,11 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+
 import pagesObject.CompraProductoPageObject;
 
 import java.util.List;
+import static org.junit.Assert.assertEquals;
 
 public class CompraProductoSteps {
 
@@ -46,7 +48,9 @@ public class CompraProductoSteps {
 
     @Step
     public void validarCompra (List<String> parametros) {
-        compraProductoPageObject.ValidarCompra(parametros);
+        String strResultado =  compraProductoPageObject.ValidarCompra();
+
+        assertEquals(strResultado, parametros.get(0));
     }
 
 }

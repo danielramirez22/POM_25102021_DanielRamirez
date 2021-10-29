@@ -4,13 +4,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import org.junit.Assert;
 
 import java.util.List;
-
-import java.util.logging.Logger;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 
 @DefaultUrl("https://www.saucedemo.com")
 public class CompraProductoPageObject extends PageObject {
@@ -98,13 +93,9 @@ public class CompraProductoPageObject extends PageObject {
         btnFinish.click();
     }
 
-    public void ValidarCompra (List<String> parametros) {
+    public String ValidarCompra () {
 
         String textoParaVerificar = lblValidacionExitosa.getText();
-        if (textoParaVerificar.equals(parametros.get(0))) {
-            Logger.getLogger("TEST SUCCESS");
-        } else {
-            Assert.fail("TEST FAILED");
-        }
+        return textoParaVerificar;
     }
 }
